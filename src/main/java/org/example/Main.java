@@ -4,7 +4,6 @@ import org.example.exchangers.Exchanger;
 import org.example.models.Rates;
 import org.example.service.DbService;
 import org.example.service.KryptoService;
-import org.example.utils.ExchangerHandler;
 import org.example.utils.Retriever;
 import org.knowm.xchange.dto.marketdata.Ticker;
 
