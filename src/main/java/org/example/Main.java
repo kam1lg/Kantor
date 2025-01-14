@@ -3,20 +3,15 @@ package org.example;
 import org.example.models.Rates;
 import org.example.service.DbService;
 import org.example.service.KryptoService;
-import org.example.utils.Retriever;
+import org.example.service.Retriever;
 import org.knowm.xchange.dto.marketdata.Ticker;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
-
-import static org.example.utils.Retriever.retrieveRates;
 
 public class Main {
     public static void main(String[] args) throws IOException, SQLException {
