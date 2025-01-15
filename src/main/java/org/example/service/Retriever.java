@@ -18,7 +18,7 @@ public class Retriever {
     public static List<Rates> retrieveRates() throws IOException {
         List<Rates> ratesList = new ArrayList<>();
         int responseCode = 0;
-        URL urlObj = new URL("https://api.nbp.pl/api/exchangerates/tables/A/");
+        URL urlObj = new URL("https://api.nbp.pl/api/exchangerates/tables/A/?format=json");
         HttpsURLConnection connection = (HttpsURLConnection) urlObj.openConnection();
         connection.setRequestMethod("GET");
         responseCode = connection.getResponseCode();

@@ -16,7 +16,7 @@ public class DbService {
 
     // Metoda do inserty do tabeli "kursy_fiat" za pomocą pstmt
     public void insertFiatRate(String date, String time, String code, Double rate) throws SQLException {
-        String sql = "INSERT INTO kursy_fiat (data, czas, code, rate) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO kursy_fiat_historyczne (data, czas, code, rate) VALUES (?, ?, ?, ?)";
         try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, date);
             pstmt.setString(2, time);
@@ -33,6 +33,18 @@ public class DbService {
             pstmt.setString(1, date);
             pstmt.setString(2, time);
             pstmt.setString(3, code);
+            pstmt.setDouble(4, rate);
+            pstmt.executeUpdate();
+        }
+    }
+
+    // Nowa metoda do inserty do tabeli "xxx_usd_historyczne"
+    public void insertCryptoRateToUSD(String tableName, String date, String time, String code, Double rate) throws SQLException {
+        String sql = String.format("INSERT INTO %s (data, czas, code, rate) VALUES (?, ?, ?, ?)", tableName);
+        try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, date);
+            pstmt.setString(2, time);
+            pstmt.setString(3, code + "/USD");
             pstmt.setDouble(4, rate);
             pstmt.executeUpdate();
         }

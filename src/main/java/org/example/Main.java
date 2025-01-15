@@ -33,6 +33,9 @@ public class Main {
 
         // Pobranie kursów kryptowalut i zapisanie do tabeli kursy_krypto
         saveCryptoRates();
+
+        // Pobranie kursów kryptowalut i zapisanie do tabel xxx_usd_historyczne
+        saveCryptoRatesToUSD();
     }
 
     // Funkcja pobierająca wszystkie dostępne waluty z API NBP
@@ -75,6 +78,16 @@ public class Main {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    // Funkcja zapisująca kursy kryptowalut do tabel xxx_usd_historyczne
+    public static void saveCryptoRatesToUSD() {
+        try {
+            KryptoService serwisKrypto = new KryptoService();
+            serwisKrypto.saveCryptoRatesToUSD();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
